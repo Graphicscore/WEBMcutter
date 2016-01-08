@@ -1,0 +1,192 @@
+﻿<Window x:Class="Pr0tastischer_webM_Cutter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pr0tastischer_webM_Cutter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000" Background="#FF161618" Foreground="#FF1DB992" Icon="logoPr0tastisch.ico" WindowStartupLocation="CenterScreen" MinWidth="1000" MinHeight="450">
+    <Grid x:Name="mainGrid">
+        <Grid x:Name="gridContent">
+            <Grid.Effect>
+                <BlurEffect x:Name="gridContentBlurEffekt" Radius="0"/>
+            </Grid.Effect>
+            <Border x:Name="bVorschau" BorderBrush="Black" BorderThickness="1,1,1,1" Margin="10,10,463,140" CornerRadius="5,5,5,5" Background="Black">
+                <Grid>
+                    <Image x:Name="imgVorschau" Margin="0,0,0,0">
+                        <Image.Effect>
+                            <BlurEffect x:Name="VorschauBlurEffekt" Radius="0"/>
+                        </Image.Effect>
+                        <Image.CacheMode>
+                            <BitmapCache/>
+                        </Image.CacheMode>
+                    </Image>
+                    <Grid x:Name="gridVorschauBildEffekt" Background="Black" Opacity="0.6" Visibility="Collapsed"></Grid>
+                    <Label x:Name="labInfVorschau" Content="Wähle einen Startpunkt..." HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FF1DB992" Width="579" HorizontalContentAlignment="Right" FontSize="10.667" FontWeight="Bold" MouseEnter="labInfVorschau_MouseEnter" MouseLeave="labInfVorschau_MouseLeave">
+                        <Label.Effect>
+                            <DropShadowEffect ShadowDepth="0" BlurRadius="2"/>
+                        </Label.Effect>
+                    </Label>
+                </Grid>
+            </Border>
+            <Grid Height="125" Margin="10,0,463,10" VerticalAlignment="Bottom">
+                <Label Content="Startzeitpunkt" Margin="10,10,10,0" VerticalAlignment="Top" Foreground="#FF1DB992" HorizontalContentAlignment="Center"/>
+                <Label Content="Laufzeit" Margin="10,64,10,0" VerticalAlignment="Top" Foreground="#FF1DB992" HorizontalContentAlignment="Center"/>
+                <Label x:Name="labInfStart" Content="00:00:00.000" Margin="0,10,10,0" VerticalAlignment="Top" Foreground="#FF1DB992" HorizontalContentAlignment="Right" FontSize="10.667" Cursor="Hand" MouseDoubleClick="labInfStart_MouseDoubleClick" Height="41" VerticalContentAlignment="Bottom" HorizontalAlignment="Right" Width="74"/>
+                <Label x:Name="labInfLaenge" Content="00:00:00.000" Margin="0,64,10,0" VerticalAlignment="Top" Foreground="#FF1DB992" HorizontalContentAlignment="Right" FontSize="10.667" Cursor="Hand" MouseDoubleClick="labInfLaenge_MouseDoubleClick" Height="42" VerticalContentAlignment="Bottom" HorizontalAlignment="Right" Width="74"/>
+                <Slider x:Name="sstartzeit" Margin="10,43,10,0" VerticalAlignment="Top" ValueChanged="slider_ValueChanged" SmallChange="1000" LargeChange="60000" GotFocus="slider_GotFocus"/>
+                <Slider x:Name="slaenge" Margin="10,97,10,0" VerticalAlignment="Top" ValueChanged="slaenge_ValueChanged" SmallChange="100" LargeChange="1000" Maximum="120000" GotFocus="slaenge_GotFocus"/>
+            </Grid>
+            <Grid Margin="0,10,10,140" HorizontalAlignment="Right" Width="448">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Expander IsExpanded="true" Header="Einstellungen" Foreground="#FF1DB992">
+                            <Grid Height="300">
+                                <Slider x:Name="sqmin" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Width="299" Maximum="63" Minimum="1" SmallChange="1" Value="10" ValueChanged="sqmin_ValueChanged" LargeChange="3"/>
+                                <Slider x:Name="sqmax" HorizontalAlignment="Left" Margin="62,31,0,0" VerticalAlignment="Top" Width="299" RenderTransformOrigin="0.308,-0.322" SmallChange="1" Minimum="10" Maximum="63" Value="35" ValueChanged="sqmax_ValueChanged" LargeChange="3"/>
+                                <Slider x:Name="scrf" HorizontalAlignment="Left" Margin="62,52,0,0" VerticalAlignment="Top" Width="299" SmallChange="1" LargeChange="3" Maximum="63" Value="19" Minimum="1" ValueChanged="scrf_ValueChanged"/>
+                                <Slider x:Name="sbreite" HorizontalAlignment="Left" Margin="62,86,0,0" VerticalAlignment="Top" Width="299" SmallChange="10" LargeChange="100" Minimum="-1" Maximum="1920" Value="720" ValueChanged="sbreite_ValueChanged" TickFrequency="10"/>
+                                <Slider x:Name="shoehe" HorizontalAlignment="Left" Margin="62,107,0,0" VerticalAlignment="Top" Width="299" Minimum="-1" Value="-1" SmallChange="10" Maximum="1080" LargeChange="10" ValueChanged="shoehe_ValueChanged" TickFrequency="10"/>
+                                <Slider x:Name="scropbreite" HorizontalAlignment="Left" Margin="62,141,0,0" VerticalAlignment="Top" Width="299" ValueChanged="scropbreite_ValueChanged" Maximum="1920" SmallChange="1" LargeChange="10"/>
+                                <Slider x:Name="scrophoehe" HorizontalAlignment="Left" Margin="62,162,0,0" VerticalAlignment="Top" Width="299" ValueChanged="scrophoehe_ValueChanged" Maximum="1080" LargeChange="10" SmallChange="1"/>
+                                <Slider x:Name="scropx" HorizontalAlignment="Left" Margin="62,183,0,0" VerticalAlignment="Top" Width="299" ValueChanged="scropx_ValueChanged" Maximum="1920" LargeChange="10" SmallChange="1"/>
+                                <Slider x:Name="scropy" HorizontalAlignment="Left" Margin="62,204,0,0" VerticalAlignment="Top" Width="299" ValueChanged="scropy_ValueChanged" Maximum="1080" LargeChange="10" SmallChange="1"/>
+                                <Label x:Name="labInfQMin" Content="10" HorizontalAlignment="Right" Margin="0,5,0,0" VerticalAlignment="Top"  Foreground="#FF1DB992" FontSize="10.667" MouseDoubleClick="labInfQMin_MouseDoubleClick" Cursor="Hand" Width="41"/>
+                                <Label x:Name="labInfQMax" Content="35" HorizontalAlignment="Right" Margin="0,26,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" FontSize="10.667" Cursor="Hand" MouseDoubleClick="labInfQMax_MouseDoubleClick" Width="41"/>
+                                <Label x:Name="labInfCRF" Content="19" HorizontalAlignment="Right" Margin="0,47,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" FontSize="10.667" Cursor="Hand" MouseDoubleClick="labInfCRF_MouseDoubleClick" Width="41"/>
+                                <Label x:Name="labInfBreite" Content="720" HorizontalAlignment="Right" Margin="0,81,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" FontSize="10.667" Cursor="Hand" MouseDoubleClick="labInfBreite_MouseDoubleClick" Width="41"/>
+                                <Label x:Name="labInfHoehe" Content="-1" HorizontalAlignment="Right" Margin="0,102,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" FontSize="10.667" Cursor="Hand" MouseDoubleClick="labInfHoehe_MouseDoubleClick" Width="41"/>
+                                <CheckBox x:Name="cbAudioAus" Content="Audiospur deaktivieren" HorizontalAlignment="Left" Margin="62,266,0,0" VerticalAlignment="Top" Width="299" IsChecked="True"/>
+                                <Label Content="Qmin" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="minimum Quantizer" HorizontalContentAlignment="Right"/>
+                                <Label Content="Qmax" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="maximum Quantizer" HorizontalContentAlignment="Right"/>
+                                <Label Content="CRF" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="Constant Rate Factor" HorizontalContentAlignment="Right"/>
+                                <Label Content="Breite" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="Ausgabe Breite des Videos (-1 für relativ zur Höhe)." HorizontalContentAlignment="Right"/>
+                                <Label Content="Höhe" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="Ausgabe Höhe des Videos (-1 für relativ zur Breite)." HorizontalContentAlignment="Right"/>
+                                <Label Content="Breite" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="Beschneide das Video in der Breite." HorizontalContentAlignment="Right"/>
+                                <Label Content="Qualität" HorizontalAlignment="Left" Margin="-20,27,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="59" ToolTip="Allgemein: kleiner = besser." HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                    <Label.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="270"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Label.RenderTransform>
+                                </Label>
+                                <Label Content="Auflösung" HorizontalAlignment="Left" Margin="-20,94,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="59" ToolTip="Skaliere das Video auf eine neue Auflösung." HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                    <Label.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="270"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Label.RenderTransform>
+                                </Label>
+                                <Label Content="Beschneiden" HorizontalAlignment="Left" Margin="-35,169,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="87" ToolTip="Das ist doch einfach nur scheiße... Zum deaktivieren alle auf 0." HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                    <Label.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="270"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Label.RenderTransform>
+                                </Label>
+                                <Label Content="Höhe" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="Beschneide das Video in der Höhe." HorizontalContentAlignment="Right"/>
+                                <Label Content="X-Pos." HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="Lege die X-Koordinate fest." HorizontalContentAlignment="Right"/>
+                                <Label Content="Y-Pos." HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="Lege die Y-Koordinate fest." HorizontalContentAlignment="Right"/>
+                                <Label x:Name="labInfCropBreite" Content="0" HorizontalAlignment="Right" Margin="0,136,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" FontSize="10.667" Cursor="Hand" Width="41" MouseDoubleClick="labInfCropBreite_MouseDoubleClick"/>
+                                <Label x:Name="labInfCropHoehe" Content="0" HorizontalAlignment="Right" Margin="0,157,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" FontSize="10.667" Cursor="Hand" Width="41" MouseDoubleClick="labInfCropHoehe_MouseDoubleClick"/>
+                                <Label x:Name="labInfCropX" Content="0" HorizontalAlignment="Right" Margin="0,178,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" FontSize="10.667" Cursor="Hand" Width="41" MouseDoubleClick="labInfCropX_MouseDoubleClick"/>
+                                <Label x:Name="labInfCropY" Content="0" HorizontalAlignment="Right" Margin="0,199,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" FontSize="10.667" Cursor="Hand" Width="41" MouseDoubleClick="labInfCropY_MouseDoubleClick"/>
+                                <Slider x:Name="sMaxFileSize" HorizontalAlignment="Left" Margin="62,239,0,0" VerticalAlignment="Top" Width="299" LargeChange="2" SmallChange="1" TickPlacement="TopLeft" ValueChanged="sMaxFileSize_ValueChanged"/>
+                                <Label x:Name="labInfMaxFileSize" Content="aus" HorizontalAlignment="Right" Margin="0,237,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" FontSize="10.667" Width="41"/>
+                                <Label Content="Größe" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Foreground="#FFBABABA" FontSize="10.667" Width="47" ToolTip="Aktiviere hier die Beschränkung für die Größe der Datei. ACHTUNG: Sobald die gewünschte Größe erreicht ist, wird das Video abgeschlossen." HorizontalContentAlignment="Right"/>
+                            </Grid>
+                        </Expander>
+                        <Expander IsExpanded="true" Header="Vorlagen" Foreground="#FF1DB992">
+                            <Grid Height="83">
+                                <ComboBox x:Name="comVorlage" Margin="10,10,10,0" VerticalAlignment="Top" SelectionChanged="comVorlage_SelectionChanged" IsEditable="True"/>
+                                <Button x:Name="btnVorlageDelete" Content="Löschen" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="191" Click="btnVorlageDelete_Click"/>
+                                <Button x:Name="btnVorlageSpeichern" Content="Speichern" Margin="0,45,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="191" Click="btnVorlageSpeichern_Click"/>
+                            </Grid>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            <Grid Margin="0,0,10,10" HorizontalAlignment="Right" Width="448" Height="125" VerticalAlignment="Bottom">
+                <Button x:Name="btnExport" Content="Exportieren" Margin="10,0,10,10" VerticalAlignment="Bottom" Click="btnExport_Click"/>
+                <Button x:Name="btnOpenFile" Content="Eine andere Datei öffnen" Margin="10,0,10,45" VerticalAlignment="Bottom" Click="btnOpenFile_Click"/>
+                <Button x:Name="btnCopyright" Content="Rechtliches" Margin="10,0,10,80" VerticalAlignment="Bottom" Click="btnCopyright_Click"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="gridTimeMagicInput" Visibility="Collapsed">
+            <Grid Background="Black" Opacity="0.8"></Grid>
+            <Grid Margin="320,142,319,157" HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="353">
+                <Label Content="Den gewünschten Zeitpunkt eingeben:" Margin="10,10,10,0" VerticalAlignment="Top" RenderTransformOrigin="1.317,0.5" Foreground="#FF1DB992"/>
+                <TextBox x:Name="tbTimeMagicStunden" HorizontalAlignment="Left" Height="23" Margin="10,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" SelectionBrush="#FF1DB992" ToolTip="Hier Stunden, Yo!" KeyDown="tbTimeMagicStunden_KeyDown"/>
+                <TextBox x:Name="tbTimeMagicMinuten" HorizontalAlignment="Left" Height="23" Margin="99,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" SelectionBrush="#FF1DB992" ToolTip="Hier die Minuten!" KeyDown="tbTimeMagicMinuten_KeyDown"/>
+                <TextBox x:Name="tbTimeMagicSekunden" Height="23" Margin="188,43,10,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionBrush="#FF1DB992" ToolTip="Hier Sekunden inlc. Millisekunden. (00,000)" KeyDown="tbTimeMagicSekunden_KeyDown"/>
+                <Button x:Name="btnTimeMagicOk" Content="Oki" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="btnTimeMagicOk_Click"/>
+                <Button x:Name="btnTimeMagicCancel" Content="Abbruch" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" Click="btnTimeMagicCancel_Click"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="gridSingleMagicInput" Visibility="Collapsed">
+            <Grid Background="Black" Opacity="0.8"></Grid>
+            <Grid Margin="307,146,307,127" HorizontalAlignment="Center" VerticalAlignment="Center" Height="146" Width="378">
+                <Label x:Name="labSingleMagicBeschreibung" Content="Eingabe:" Margin="10,0,8,84" VerticalAlignment="Bottom" Foreground="#FF1DB992" FontSize="16" Height="33"/>
+                <TextBox x:Name="tbSingleMagicInput" Height="24" Margin="10,0,10,49" TextWrapping="Wrap" VerticalAlignment="Bottom" KeyDown="tbSingleMagicInput_KeyDown"/>
+                <Button x:Name="btnSingleMagicOK" Content="Oki" HorizontalAlignment="Right" Margin="0,0,10,14" VerticalAlignment="Bottom" Width="75" Click="btnSingleMagicOK_Click"/>
+                <Button x:Name="btnSingleMagicCancel" Content="Abbruch" HorizontalAlignment="Right" Margin="0,0,90,14" VerticalAlignment="Bottom" Width="75" Click="btnSingleMagicCancel_Click"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="gridLoading" Visibility="Collapsed">
+            <Grid Background="Black" Opacity="0.8"></Grid>
+            <Grid Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Label x:Name="labLadeInfo" Content="Nix" HorizontalAlignment="Stretch" Margin="10,71,0,223" VerticalAlignment="Center" Foreground="#FF1DB992" Height="125" VerticalContentAlignment="Bottom"/>
+                <ProgressBar Margin="10,201,10,200" VerticalAlignment="Center" Height="18" Foreground="#FF1DB992" IsIndeterminate="True"></ProgressBar>
+            </Grid>
+        </Grid>
+        <Grid x:Name="gridRechtliches" Visibility="Collapsed">
+            <Grid Background="Black" Opacity="0.8">
+            </Grid>
+            <Grid Margin="263,61,225,57" HorizontalAlignment="Center" VerticalAlignment="Center" Height="301" Width="504">
+                <Label Content="Copyright ©            2016" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF1DB992" HorizontalAlignment="Left" Width="160"/>
+                <Label x:Name="labInfCopyrightUser" Content="Teto ●" HorizontalAlignment="Left" Height="28" Margin="87,10,0,0" VerticalAlignment="Top" Width="48" Foreground="#FFF5F7F6" Cursor="Hand" MouseDoubleClick="labInfCopyrightUser_MouseDoubleClick" RenderTransformOrigin="0.472,0.476"/>
+                <Button x:Name="btnCloseRechtliches" Content="Okay, hab genug." HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="135" Click="btnCloseRechtliches_Click"/>
+                <Label Content="06.01.2016" Margin="0,10,10,0" VerticalAlignment="Top" Foreground="#FF1DB992" HorizontalAlignment="Right" Width="160" HorizontalContentAlignment="Right"/>
+                <ScrollViewer Margin="10,43,10,45">
+                    <StackPanel>
+                        <TextBlock TextWrapping="WrapWithOverflow">                    
+>_ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   
+At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                       <LineBreak></LineBreak><LineBreak></LineBreak>
+                        Als ob es jemanden Interessiert, was zur Hölle hier steht.<LineBreak></LineBreak>
+                        Da dieses Projekt ohne ffmpeg nicht funktioniert, hier ein Verweis auf deren Lizenz: https://www.ffmpeg.org/legal.html und http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html<LineBreak></LineBreak>                         
+                        Das Verwendete Design: https://www.nuget.org/packages/Infragistics.Themes.MetroDark.Wpf/<LineBreak></LineBreak>
+                        Trotzem Verweis auf die Nutzungslizenz: https://github.com/Graphicscore/WEBMcutter/blob/master/LICENSE.md<LineBreak></LineBreak>
+                        Und auf GitHub: https://github.com/Graphicscore/WEBMcutter/<LineBreak></LineBreak>
+                        Vielen Dank an @Graphicscore für das Hosten des Repository auf seinem GitHub Account.<LineBreak></LineBreak>
+                        Wie man den Source Dateien entnehmen kann, ist dies nun ein C# Project mit WPF als Fenster Framework. Es sieht toll aus aber wenn man Bilder in das WPF Image Object packen will, kann man sich gleich einen Platz in der Klapse bestellen.<LineBreak></LineBreak>
+                        <LineBreak></LineBreak><LineBreak></LineBreak>
+                        Changlog 2.0:<LineBreak></LineBreak>
+                         - Es sieht fancy aus.<LineBreak></LineBreak>
+                         - Es ist Open Source.<LineBreak></LineBreak>
+                         - Es ist mehr GUI als vorher, um die möglichen Nachteile auszugleichen, gibt es neue Eingabemasken.<LineBreak></LineBreak>
+                         - Farbthematisch erinnert es jetzt an Pr0.<LineBreak></LineBreak>
+                         - Man kann das Video jetzt beschneiden (ist aber nicht so wirklich nice zu nutzen).<LineBreak></LineBreak>
+                         - Man kann die maximale Ausgabegröße einstellen (Er bricht zwar einfach ab, sobald die entsprechende Größe erreicht wurde... Aber hey wenigstens geht es).<LineBreak></LineBreak>
+                         - Noch Idiotensicherer - die Laufzeit kann nicht über das Video hinaus gezogen werden.<LineBreak></LineBreak>
+                         - Kommt mit Macht im Keller.<LineBreak></LineBreak>
+                        </TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
