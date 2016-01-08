@@ -1,0 +1,23 @@
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\bin\Release\Pr0tastischer webM Cutter.exe.config
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\bin\Release\Pr0tastischer webM Cutter.exe
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\bin\Release\Pr0tastischer webM Cutter.pdb
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\bin\Release\System.Windows.Controls.Input.Toolkit.dll
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\bin\Release\System.Windows.Controls.Layout.Toolkit.dll
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\bin\Release\WPFToolkit.dll
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Pr0tastischer webM Cutter.csprojResolveAssemblyReference.cache
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Themes\MetroDark\MetroDark.MSControls.Core.Implicit.baml
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Themes\MetroDark\MetroDark.MSControls.Toolkit.Implicit.baml
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Themes\MetroDark\Styles.Shared.baml
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Themes\MetroDark\Styles.WPF.baml
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Themes\MetroDark\Theme.Colors.baml
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\winMain.g.cs
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\App.g.cs
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Pr0tastischer webM Cutter_MarkupCompile.cache
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Pr0tastischer webM Cutter_MarkupCompile.lref
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\App.baml
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\winMain.baml
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Pr0tastischer webM Cutter.g.resources
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Pr0tastischer_webM_Cutter.Properties.Resources.resources
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Pr0tastischer webM Cutter.csproj.GenerateResource.Cache
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Pr0tastischer webM Cutter.exe
+C:\Users\louve\Documents\GitHub\WEBMcutter\Pr0tastischer webM Cutter\obj\Release\Pr0tastischer webM Cutter.pdb
